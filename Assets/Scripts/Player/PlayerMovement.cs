@@ -5,25 +5,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private PlayerStatManager statManager;
-    [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private float sprintModifier = 20f;
+    private Rigidbody rigidBody;
 
     void Start()
     {
-        if (statManager == null)
-            statManager = GetComponent<PlayerStatManager>();
         if (rigidBody == null)
-            rigidBody = GetComponent<Rigidbody>();
+            rigidBody = PlayerBase.instance.rigidBody;
     }
 
-    void Update()
+    public void Movement()
     {
-        Movement();
-    }
-
-    private void Movement()
-    {
-        Vector2 move = InputManager.Instance.MoveVect * statManager.Speed.CurrValue;
+        Vector2 move = InputManager.Instance.MoveVect * PlayerBase.instance.Stats.Speed.CurrValue;
         rigidBody.velocity = transform.TransformDirection(new Vector3(move.x, rigidBody.velocity.y, move.y));
     }
 }

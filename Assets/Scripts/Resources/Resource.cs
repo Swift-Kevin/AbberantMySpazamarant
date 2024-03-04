@@ -25,6 +25,7 @@ public class Resource
     public float CurrValue => currentValue;
     public float Max => maxValue;
     public float Min => minValue;
+    public bool Valid => (currentValue > 0);
 
     public bool UpdateMaxValue(float amount)
     {

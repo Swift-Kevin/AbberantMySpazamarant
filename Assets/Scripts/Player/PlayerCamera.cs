@@ -8,11 +8,11 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] private float vertLookDegree;
     [SerializeField] private float cameraSpeedVert;
     [SerializeField] private float cameraSpeedHori;
-    float xRot;
+    float xRot = 0f;
 
     void Start()
     {
-
+        transform.localRotation = Quaternion.Euler(xRot, 0, 0);
     }
 
     void Update()

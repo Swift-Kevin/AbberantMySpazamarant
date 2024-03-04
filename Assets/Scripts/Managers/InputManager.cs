@@ -1,13 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
     PlayerInput input;
-
 
     public PlayerInput.GeneralActions Action => input.General;
     public Vector2 MoveVect => input.General.Move.ReadValue<Vector2>();
@@ -17,15 +18,19 @@ public class InputManager : MonoBehaviour
         Instance = this;
     }
 
-
     void Start()
     {
         input = new PlayerInput();
-        input.General.Enable();
+        input.Enable();
     }
 
     public Vector2 CameraReadVal()
     {
         return input.General.Look.ReadValue<Vector2>();
+    }
+
+    public bool CheckSprint()
+    {
+        return Action.Sprint.ReadValue<bool>();
     }
 }
