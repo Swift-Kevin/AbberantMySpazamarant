@@ -11,6 +11,7 @@ public class Resource
     public event System.Action OnFilled;
     public event System.Action OnDecrease;
     public event System.Action OnIncrease;
+    public event System.Action OnChanged;
 
     // Set Values
     [SerializeField] private float maxValue = 0;
@@ -23,6 +24,7 @@ public class Resource
 
     // Properties
     public float CurrValue => currentValue;
+    public float Percent => currentValue / maxValue;
     public float Max => maxValue;
     public float Min => minValue;
     public bool Valid => (currentValue > 0);
@@ -41,6 +43,7 @@ public class Resource
     {
         currentValue = maxValue;
         OnFilled?.Invoke();
+        OnChanged?.Invoke();
         depletedResource = false;
     }
 
@@ -48,6 +51,7 @@ public class Resource
     {
         currentValue = minValue;
         OnDepleted?.Invoke();
+        OnChanged?.Invoke();
         depletedResource = true;
     }
 
@@ -55,6 +59,7 @@ public class Resource
     {
         currentValue += Mathf.Min(currentValue + amount, maxValue);
         OnIncrease?.Invoke();
+        OnChanged?.Invoke();
         depletedResource = false;
     }
 
@@ -65,6 +70,7 @@ public class Resource
 
         currentValue = Mathf.Max(currentValue - amount, 0);
         OnDecrease?.Invoke();
+        OnChanged?.Invoke();
         if (currentValue == 0)
         {
             OnDepleted?.Invoke();

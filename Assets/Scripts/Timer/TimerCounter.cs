@@ -15,20 +15,22 @@ public class TimerCounter : MonoBehaviour
     [SerializeField, Tooltip("False = Countdown | True = Stopwatch")] private bool timerDirection; // 0 = down | 1 = up
     [SerializeField] private bool loop;
 
-    private float currentTime;
+    private float currTime;
+    public float CurrentTime => currTime;
+    public float PercentPassed => Mathf.Clamp01(currTime / duration);
     public bool runTimer = false;
 
     private void Update()
     {
-        if (runTimer) 
+        if (runTimer)
         {
             // decreasing timer (standard countdown)
             if (!timerDirection)
             {
-                if (currentTime > 0)
+                if (currTime > 0)
                 {
                     // run the timer downwards
-                    currentTime -= Time.deltaTime;
+                    currTime -= Time.deltaTime;
                     OnTick?.Invoke();
                 }
                 else
@@ -40,10 +42,10 @@ public class TimerCounter : MonoBehaviour
             // increasing timer (stopwatch effect)
             else
             {
-                if (currentTime < duration)
+                if (currTime < duration)
                 {
                     // run the timer upwards (counting the stopwatch up)
-                    currentTime += Time.deltaTime;
+                    currTime += Time.deltaTime;
                     OnTick?.Invoke();
                 }
                 else
@@ -57,7 +59,7 @@ public class TimerCounter : MonoBehaviour
 
     public void SetToMax()
     {
-        currentTime = duration;
+        currTime = duration;
         runTimer = true;
     }
 
@@ -89,7 +91,7 @@ public class TimerCounter : MonoBehaviour
 
     private void TimerEnded()
     {
-        currentTime = 0;
+        currTime = 0;
         OnEnded?.Invoke();
         runTimer = false;
 
