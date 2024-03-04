@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float sprintModifier = 20f;
+    //[SerializeField] private float sprintModifier = 20f;
     private Rigidbody rigidBody;
 
     void Start()

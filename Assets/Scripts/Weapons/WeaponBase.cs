@@ -7,6 +7,7 @@ using UnityEngine;
 public class WeaponBase : MonoBehaviour
 {
     [SerializeField] private AttackDamagePool attack;
+    [SerializeField] private string animName;
     [SerializeField] private TimerCounter attackTimer;
     [SerializeField] private float attackDist;
     [SerializeField] private float cooldown = 3f;
@@ -42,7 +43,6 @@ public class WeaponBase : MonoBehaviour
     private void AttackTimer_OnStart()
     {
         canUseWeapon = false;
-        Debug.Log("Timer started/restarted");
     }
 
     private void AttackTimer_OnEnded()
@@ -55,6 +55,10 @@ public class WeaponBase : MonoBehaviour
     {
         if (InputManager.Instance.Action.Attack.WasPressedThisFrame() && canUseWeapon)
         {
+            GetComponent<Animator>().Play(animName, -1, 0f);
+            attackTimer.enabled = true;
+            attackTimer.StartTimer(cooldown);
+
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, attackDist))
             {
@@ -63,8 +67,6 @@ public class WeaponBase : MonoBehaviour
                 if (damageable != null)
                 {
                     damageable.TakeDamage(attack.CurrValue);
-                    attackTimer.enabled = true;
-                    attackTimer.StartTimer(cooldown);
                 }
             }
         }

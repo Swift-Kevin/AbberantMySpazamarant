@@ -16,12 +16,11 @@ public class TimerCounter : MonoBehaviour
     [SerializeField] private bool loop;
 
     private float currentTime;
-    private bool timerDone;
     public bool runTimer = false;
 
     private void Update()
     {
-        if (runTimer)
+        if (runTimer) 
         {
             // decreasing timer (standard countdown)
             if (!timerDirection)
@@ -59,20 +58,18 @@ public class TimerCounter : MonoBehaviour
     public void SetToMax()
     {
         currentTime = duration;
-        timerDone = false;
+        runTimer = true;
     }
 
     public void RestartTimer()
     {
         SetToMax();
-        runTimer = true;
         OnRestarted?.Invoke();
     }
 
     public void StartTimer()
     {
         SetToMax();
-        runTimer = true;
         OnStarted?.Invoke();
     }
 
@@ -95,7 +92,6 @@ public class TimerCounter : MonoBehaviour
         currentTime = 0;
         OnEnded?.Invoke();
         runTimer = false;
-        timerDone = true;
 
         if (loop)
         {
