@@ -18,8 +18,7 @@ public class Resource
     [SerializeField] private float minValue = 0;
 
     // Resource States
-    [SerializeField]
-    private float currentValue;
+    [SerializeField] private float currentValue;
     private bool depletedResource;
 
     // Properties

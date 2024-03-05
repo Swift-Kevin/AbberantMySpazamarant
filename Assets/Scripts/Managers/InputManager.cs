@@ -11,7 +11,9 @@ public class InputManager : MonoBehaviour
     PlayerInput input;
 
     public PlayerInput.GeneralActions Action => input.General;
-    public Vector2 MoveVect => input.General.Move.ReadValue<Vector2>();
+    public Vector2 MoveVect => Action.Move.ReadValue<Vector2>();
+
+    public bool SwapWeaponPressed => input.General.SwapWeapon.WasPressedThisFrame();
 
     private void Awake()
     {

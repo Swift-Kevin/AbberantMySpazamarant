@@ -6,38 +6,48 @@ using UnityEngine;
 [RequireComponent(typeof(TimerCounter))]
 public class WeaponBase : MonoBehaviour
 {
-    [SerializeField] private AttackDamagePool attack;
-    [SerializeField] private string animName;
-    [SerializeField] private TimerCounter attackTimer;
-    [SerializeField] private float attackDist;
-    [SerializeField] private float cooldown = 3f;
+    [Serializable]
+    protected struct WeaponInfo
+    {
+        [SerializeField] private float cooldown;
+        [SerializeField] private float attackDistance;
+        [SerializeField] private string animName;
 
-    private bool canUseWeapon;
+        public float CD => cooldown;
+        public float AtkDist => attackDistance;
+        public string AnimationName => animName;
+    }
+
+    [SerializeField] protected TimerCounter weaponTimer;
+    [SerializeField] protected AttackDamagePool attack;
+    [SerializeField] protected WeaponInfo weapon;
+
+    protected bool canUseWeapon;
     public bool CanUse => canUseWeapon;
 
-    void Start()
+    private void Start()
     {
         attack.SetToMax();
         canUseWeapon = true;
 
-        if (attackTimer == null)
+        if (weaponTimer == null)
         {
-            attackTimer = GetComponent<TimerCounter>();
+            weaponTimer = GetComponent<TimerCounter>();
         }
     }
 
     private void OnEnable()
     {
-        attackTimer.OnEnded += AttackTimer_OnEnded;
-        attackTimer.OnStarted += AttackTimer_OnStart;
-        attackTimer.OnRestarted += AttackTimer_OnStart;
+        weaponTimer.OnEnded += AttackTimer_OnEnded;
+        weaponTimer.OnStarted += AttackTimer_OnStart;
+        weaponTimer.OnRestarted += AttackTimer_OnStart;
     }
 
     private void OnDisable()
     {
-        attackTimer.OnEnded -= AttackTimer_OnEnded;
-        attackTimer.OnStarted -= AttackTimer_OnStart;
-        attackTimer.OnRestarted -= AttackTimer_OnStart;
+        weaponTimer.OnEnded -= AttackTimer_OnEnded;
+        weaponTimer.OnStarted -= AttackTimer_OnStart;
+        weaponTimer.OnRestarted -= AttackTimer_OnStart;
     }
 
     private void AttackTimer_OnStart()
@@ -47,28 +57,12 @@ public class WeaponBase : MonoBehaviour
 
     private void AttackTimer_OnEnded()
     {
-        attackTimer.enabled = false;
+        weaponTimer.enabled = false;
         canUseWeapon = true;
     }
 
-    void Update()
+    public virtual void Attack()
     {
-        if (InputManager.Instance.Action.Attack.WasPressedThisFrame() && canUseWeapon)
-        {
-            GetComponent<Animator>().Play(animName, -1, 0f);
-            attackTimer.enabled = true;
-            attackTimer.StartTimer(cooldown);
-
-            RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, attackDist))
-            {
-                IDamageable damageable = hit.collider.GetComponent<IDamageable>();
-
-                if (damageable != null)
-                {
-                    damageable.TakeDamage(attack.CurrValue);
-                }
-            }
-        }
+        Debug.Log("Base Version Called");
     }
 }
