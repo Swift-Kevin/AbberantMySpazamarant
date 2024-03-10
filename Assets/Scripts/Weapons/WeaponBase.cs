@@ -30,7 +30,7 @@ public class WeaponBase : MonoBehaviour
     protected bool canUseWeapon;
     public bool CanUse => canUseWeapon;
 
-    private void Start()
+    public virtual void Start()
     {
         attack.SetToMax();
         canUseWeapon = true;

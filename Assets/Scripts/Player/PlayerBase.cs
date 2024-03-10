@@ -14,7 +14,7 @@ public class PlayerBase : MonoBehaviour
     
     public Rigidbody rigidBody;
 
-
+    public Vector3 CamFWD => GetComponentInChildren<Camera>().transform.forward;
 
     private void Awake()
     {
