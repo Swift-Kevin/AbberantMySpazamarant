@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    public static PlayerBase instance;
+    public static PlayerBase Instance;
 
     [SerializeField] private PlayerMovement movementScript;
     [SerializeField] private PlayerStatManager statManager;
 
     public PlayerStatManager Stats => statManager;
+    public float SpeedVal => Stats.Speed.CurrValue;
     
     public Rigidbody rigidBody;
 
@@ -17,7 +18,7 @@ public class PlayerBase : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     private void Start()

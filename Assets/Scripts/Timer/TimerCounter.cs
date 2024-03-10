@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class TimerCounter : MonoBehaviour
 {
+    // side note: add a delay option :)
+
     // Events for Resource to use
     public event System.Action OnEnded;
     public event System.Action OnStarted;
