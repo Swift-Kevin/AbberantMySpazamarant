@@ -11,11 +11,16 @@ public class WeaponBase : MonoBehaviour
     {
         [SerializeField] private float cooldown;
         [SerializeField] private float attackDistance;
-        [SerializeField] private string animName;
+        [SerializeField] private float secondaryAttackDistance;
+        [SerializeField] private List<string> animNames;
+        [SerializeField] private List<string> secondaryAnimNames;
 
         public float CD => cooldown;
         public float AtkDist => attackDistance;
-        public string AnimationName => animName;
+        public float SecAtkDist => secondaryAttackDistance;
+        public List<string> AnimationNames => animNames;
+        public string RandAnimName => animNames[UnityEngine.Random.Range(0, animNames.Count)];
+        public string RandSecAnimName => secondaryAnimNames[UnityEngine.Random.Range(0, secondaryAnimNames.Count)];
     }
 
     [SerializeField] protected TimerCounter weaponTimer;
@@ -63,6 +68,11 @@ public class WeaponBase : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log("Base Version Called");
+        Debug.Log("Base Version [ATTACK] Called");
+    }
+
+    public virtual void SpecialAttack()
+    {
+        Debug.Log("Base Version [SPECIAL] ATTACK Called");
     }
 }

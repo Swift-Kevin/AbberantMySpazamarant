@@ -14,6 +14,7 @@ public class InputManager : MonoBehaviour
     public Vector2 MoveVect => Action.Move.ReadValue<Vector2>();
 
     public bool SwapWeaponPressed => input.General.SwapWeapon.WasPressedThisFrame();
+    public bool SpecialAttackPressed => input.General.SpecialAttack.WasPressedThisFrame();
 
     private void Awake()
     {

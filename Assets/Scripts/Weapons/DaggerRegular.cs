@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class DaggerRegular : WeaponBase
 {
+    private float specCDMult = 1;
+    private float specAtkMult = 1;
+
     public override void Attack()
     {
         Debug.Log("Regular Attack Called");
         if (InputManager.Instance.Action.Attack.WasPressedThisFrame() && canUseWeapon)
         {
-            GetComponent<Animator>().Play(weapon.AnimationName, -1, 0f);
+            transform.parent.GetComponent<Animator>().Play(weapon.RandAnimName, -1, 0f);
             weaponTimer.enabled = true;
-            weaponTimer.StartTimer(weapon.CD);
+            weaponTimer.StartTimer(weapon.CD * specCDMult);
 
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, weapon.AtkDist))
@@ -20,9 +23,19 @@ public class DaggerRegular : WeaponBase
 
                 if (damageable != null)
                 {
-                    damageable.TakeDamage(attack.CurrValue);
+                    damageable.TakeDamage(attack.CurrValue * specAtkMult);
                 }
             }
         }
+    }
+
+    public override void SpecialAttack()
+    {
+        specCDMult = 2;
+        specAtkMult = 2.5f; 
+        
+        Attack();
+
+        specCDMult = specAtkMult = 1;
     }
 }

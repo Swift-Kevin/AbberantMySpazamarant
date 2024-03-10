@@ -17,8 +17,8 @@ public class WeaponManager : MonoBehaviour
     void Start()
     {
         currentWeapon = dagger1;
-        dagger1Model.SetActive(false);
-        dagger2Model.SetActive(true);
+        dagger1Model.SetActive(true);
+        dagger2Model.SetActive(false);
     }
 
     void Update()
@@ -26,6 +26,11 @@ public class WeaponManager : MonoBehaviour
         if (InputManager.Instance.SwapWeaponPressed)
         {
             SwapWeapon();
+        }
+
+        if (InputManager.Instance.SpecialAttackPressed)
+        {
+            currentWeapon.SpecialAttack();
         }
 
         currentWeapon.Attack();
