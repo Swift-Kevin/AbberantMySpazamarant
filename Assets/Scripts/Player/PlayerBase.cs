@@ -8,13 +8,13 @@ public class PlayerBase : MonoBehaviour
 
     [SerializeField] private PlayerMovement movementScript;
     [SerializeField] private PlayerStatManager statManager;
+    [SerializeField] private Camera cam;
 
     public PlayerStatManager Stats => statManager;
     public float SpeedVal => Stats.Speed.CurrValue;
     
-    public Rigidbody rigidBody;
 
-    public Vector3 CamFWD => GetComponentInChildren<Camera>().transform.forward;
+    public Vector3 CamFWD => cam.transform.forward;
 
     private void Awake()
     {

@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+[RequireComponent(typeof(TimerCounter))]
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] private WeaponBase currentWeapon;
@@ -13,33 +15,78 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] private GameObject dagger1Model;
     [SerializeField] private GameObject dagger2Model;
 
+    [Space]
+    [SerializeField] private TimerCounter timerSwapWeapons;
+    [SerializeField] private TimerCounter timerSheathingAndUnsheating;
+
+    private bool canSwap;
+
     // Start is called before the first frame update
     void Start()
     {
         currentWeapon = dagger1;
+        canSwap = true;
+
         dagger1Model.SetActive(true);
         dagger2Model.SetActive(false);
+        timerSwapWeapons = GetComponent<TimerCounter>();
+        
+        timerSwapWeapons.OnStarted += TimerSwapWeapons_OnStarted;
+        timerSwapWeapons.OnEnded += TimerSwapWeapons_OnEnded;
+
+        timerSheathingAndUnsheating.OnEnded += FinishSwap;
+
+        InputManager.Instance.Action.SpecialAttack.started += SpAtk;
+        InputManager.Instance.Action.Attack.started += Atk;
+        InputManager.Instance.Action.SwapWeapon.started += SwapWeapon;
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (InputManager.Instance.SwapWeaponPressed)
-        {
-            SwapWeapon();
-        }
+        timerSwapWeapons.OnStarted -= TimerSwapWeapons_OnStarted;
+        timerSwapWeapons.OnEnded -= TimerSwapWeapons_OnEnded;
 
-        if (InputManager.Instance.SpecialAttackPressed)
-        {
-            currentWeapon.SpecialAttack();
-        }
+        timerSheathingAndUnsheating.OnEnded -= FinishSwap;
 
+        InputManager.Instance.Action.SpecialAttack.started -= SpAtk;
+        InputManager.Instance.Action.Attack.started -= Atk;
+        InputManager.Instance.Action.SwapWeapon.started -= SwapWeapon;
+
+    }
+
+    private void TimerSwapWeapons_OnEnded()
+    {
+        canSwap = true;
+    }
+
+    private void TimerSwapWeapons_OnStarted()
+    {
+        canSwap = false;
+    }
+
+    private void Atk(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
         currentWeapon.Attack();
     }
 
-    private void SwapWeapon()
+    private void SpAtk(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        //currentWeapon = currentWeapon == dagger1 ? dagger2 : dagger1;
-        
+        currentWeapon.SpecialAttack();
+    }
+
+    private void SwapWeapon(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        if (canSwap)
+        {
+            // Fix current weapon (PRE SWAP)
+            currentWeapon.FixBadValues();
+            currentWeapon.Sheathe();
+            timerSheathingAndUnsheating.StartTimer();
+        }
+    }
+
+    private void FinishSwap()
+    {
         if (currentWeapon == dagger1)
         {
             currentWeapon = dagger2;
@@ -52,6 +99,11 @@ public class WeaponManager : MonoBehaviour
             dagger1Model.SetActive(true);
             dagger2Model.SetActive(false);
         }
+
+        // Fix current weapon (POST SWAP)
+        currentWeapon.FixBadValues();
+        timerSwapWeapons.StartTimer();
+        currentWeapon.Unsheathe();
     }
 
 }

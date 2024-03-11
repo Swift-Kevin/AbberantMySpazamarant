@@ -29,4 +29,9 @@ public class HealthBar : MonoBehaviour
     {
         fill.fillAmount = stats.Health.Percent;
     }
+
+    private void Update()
+    {
+        transform.LookAt(transform.position + -(PlayerBase.Instance.CamFWD));
+    }
 }

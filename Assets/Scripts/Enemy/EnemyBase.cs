@@ -2,53 +2,65 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyBase : MonoBehaviour, IDamageable
+public class EnemyBase : MonoBehaviour, IDamageable, IPushable
 {
+    [Header("Additional Scripts")]
     [SerializeField] private EnemyStatManager enemy_statManager;
-    [SerializeField] private MeshRenderer mesh;
+    [SerializeField] private EnemyMeshManipulator meshScript;
+    [SerializeField] private Rigidbody rb;
 
-    Color origColor;
+    [Header("AI")]
+    [SerializeField] private NavMeshAgent meshAgent;
 
-    // Start is called before the first frame update
     void Start()
     {
-        if (mesh == null)
-            mesh = GetComponent<MeshRenderer>();
-
-        if (mesh != null)
-            origColor = mesh.material.color;
-
-        enemy_statManager.Health.OnDepleted += Health_OnDepleted;
+        Revive();
     }
 
-    private void Health_OnDepleted()
-    {
-        StopAllCoroutines();
-        gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
     void Update()
     {
 
     }
 
+    private void OnEnable()
+    {
+        enemy_statManager.Health.OnDepleted += Health_OnDepleted;
+    }
+
+    private void OnDisable()
+    {
+        enemy_statManager.Health.OnDepleted -= Health_OnDepleted;
+    }
+
+    private void Health_OnDepleted()
+    {
+        gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// The main take damage function
+    /// </summary>
+    /// <param name="damage">Damage to apply</param>
     public void TakeDamage(float damage)
     {
-        enemy_statManager.Health.UseResource(damage);
-
+        enemy_statManager.Health.Decrease(damage);
+        
         if (enemy_statManager.Health.Valid)
         {
-            StartCoroutine(FlashDamage());
+            meshScript.FlashMesh();
         }
     }
 
-    private IEnumerator FlashDamage()
+    public void Revive()
     {
-        mesh.material.color = Color.red;
-        yield return new WaitForSeconds(0.25f);
-        mesh.material.color = origColor;
+        enemy_statManager.Revive();
+        gameObject.SetActive(true);
+    }
 
+    public void Push(Vector3 dirToPush) 
+    {
+        rb.AddForce(dirToPush);
     }
 }

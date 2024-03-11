@@ -70,6 +70,7 @@ public class Resource
         currentValue = Mathf.Max(currentValue - amount, 0);
         OnDecrease?.Invoke();
         OnChanged?.Invoke();
+
         if (currentValue == 0)
         {
             OnDepleted?.Invoke();

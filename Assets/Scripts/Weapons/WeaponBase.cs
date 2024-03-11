@@ -23,9 +23,16 @@ public class WeaponBase : MonoBehaviour
         public string RandSecAnimName => secondaryAnimNames[UnityEngine.Random.Range(0, secondaryAnimNames.Count)];
     }
 
+    [Space]
+    [Header("Base Values")]
     [SerializeField] protected TimerCounter weaponTimer;
     [SerializeField] protected AttackDamagePool attack;
     [SerializeField] protected WeaponInfo weapon;
+
+    [Space]
+    [Header("Animations for Sheating/Unsheating")]
+    [SerializeField] protected string sheatheAnim;
+    [SerializeField] protected string unsheatheAnim;
 
     protected bool canUseWeapon;
     public bool CanUse => canUseWeapon;
@@ -74,5 +81,20 @@ public class WeaponBase : MonoBehaviour
     public virtual void SpecialAttack()
     {
         Debug.Log("Base Version [SPECIAL] ATTACK Called");
+    }
+
+    public virtual void FixBadValues()
+    {
+        Debug.Log("Base Version [FIXBADVALUES] Called");
+    }
+
+    public virtual void Sheathe()
+    {
+        Debug.Log("Base Version [SHEATHE] Called");
+    }
+
+    public virtual void Unsheathe()
+    {
+        Debug.Log("Base Version [UNSHEATHE] Called");
     }
 }

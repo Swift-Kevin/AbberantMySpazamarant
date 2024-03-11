@@ -10,7 +10,7 @@ public class DaggerRegular : WeaponBase
     public override void Attack()
     {
         Debug.Log("Regular Attack Called");
-        if (InputManager.Instance.Action.Attack.WasPressedThisFrame() && canUseWeapon)
+        if (canUseWeapon)
         {
             transform.parent.GetComponent<Animator>().Play(weapon.RandAnimName, -1, 0f);
             weaponTimer.enabled = true;
@@ -37,5 +37,22 @@ public class DaggerRegular : WeaponBase
         Attack();
 
         specCDMult = specAtkMult = 1;
+    }
+
+    public override void FixBadValues()
+    {
+        weaponTimer.StopTimer();
+    }
+
+    public override void Sheathe()
+    {
+        transform.parent.GetComponent<Animator>().Play(sheatheAnim, -1, 0f);
+        canUseWeapon = false;
+    }
+
+    public override void Unsheathe()
+    {
+        transform.parent.GetComponent<Animator>().Play(unsheatheAnim, -1, 0f);
+        canUseWeapon = true;
     }
 }
