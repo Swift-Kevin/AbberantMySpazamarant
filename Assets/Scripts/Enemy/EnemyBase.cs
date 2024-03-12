@@ -9,10 +9,8 @@ public class EnemyBase : MonoBehaviour, IDamageable, IPushable
     [Header("Additional Scripts")]
     [SerializeField] private EnemyStatManager enemy_statManager;
     [SerializeField] private EnemyMeshManipulator meshScript;
+    [SerializeField] private EnemyMovement enemyMovementScript;
     [SerializeField] private Rigidbody rb;
-
-    [Header("AI")]
-    [SerializeField] private NavMeshAgent meshAgent;
 
     void Start()
     {

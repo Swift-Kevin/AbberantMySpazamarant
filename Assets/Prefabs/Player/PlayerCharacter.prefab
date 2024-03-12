@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 6991373015285200590}
   - component: {fileID: 3664779148678118170}
   - component: {fileID: 6496329674182189543}
-  - component: {fileID: 8424640155127539198}
+  - component: {fileID: 8594721385319384321}
   - component: {fileID: 3051523601941288}
   - component: {fileID: 4792379958992807765}
   m_Layer: 0
@@ -411,8 +411,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8424640155127539198
-MeshCollider:
+--- !u!65 &8594721385319384321
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -429,10 +429,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6043746360930125114, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 4.024867, y: 4.3079934, z: 0.59072083}
+  m_Center: {x: 0.24927732, y: -0.28915322, z: -0.020550936}
 --- !u!54 &3051523601941288
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -459,7 +458,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &4792379958992807765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,7 +568,7 @@ GameObject:
   - component: {fileID: 2213130073066275936}
   - component: {fileID: 7352053982370358501}
   - component: {fileID: 5675160488570412889}
-  - component: {fileID: 5160898923922722902}
+  - component: {fileID: 1557444974205863495}
   - component: {fileID: 4593455502140238127}
   - component: {fileID: 5171200622393604823}
   m_Layer: 0
@@ -644,8 +643,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5160898923922722902
-MeshCollider:
+--- !u!65 &1557444974205863495
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -662,10 +661,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -690554794711785509, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.8552186, y: 5.4499097, z: 0.64465183}
+  m_Center: {x: 0.2789108, y: 0.4024177, z: -0.04751249}
 --- !u!54 &4593455502140238127
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -692,7 +690,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &5171200622393604823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +717,7 @@ GameObject:
   - component: {fileID: 4061145072664824371}
   - component: {fileID: 6379114197028054569}
   - component: {fileID: 4010918678590141405}
-  - component: {fileID: 294238864855969814}
+  - component: {fileID: 8808492461989599663}
   - component: {fileID: 8460672071044139910}
   - component: {fileID: 271168939416826611}
   m_Layer: 0
@@ -794,8 +792,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &294238864855969814
-MeshCollider:
+--- !u!65 &8808492461989599663
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -812,10 +810,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5433508609857211535, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.6110842, y: 4.803785, z: 0.5907206}
+  m_Center: {x: 0.0892215, y: 0.44429997, z: -0.020546919}
 --- !u!54 &8460672071044139910
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -842,7 +839,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &271168939416826611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,7 +946,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7756240795230314327}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 8d2f314a3305ebe44b9758e5d305ac70, type: 2}
   m_CullingMode: 0
@@ -958,7 +955,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
-  m_HasTransformHierarchy: 1
+  m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
@@ -1075,7 +1072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3992495533306666918
 Transform:
   m_ObjectHideFlags: 0
@@ -1139,7 +1136,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8172240416133099254}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 631619b4b0b18f043a0e7015391bc158, type: 2}
   m_CullingMode: 0
@@ -1148,7 +1145,7 @@ Animator:
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
-  m_HasTransformHierarchy: 1
+  m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
@@ -1163,7 +1160,7 @@ GameObject:
   - component: {fileID: 1643510249921100638}
   - component: {fileID: 1054203014088463893}
   - component: {fileID: 3355758106671368944}
-  - component: {fileID: 4825463166140880032}
+  - component: {fileID: 2429642043911140072}
   - component: {fileID: 7542700686529363569}
   - component: {fileID: 3425769623700929060}
   m_Layer: 0
@@ -1238,8 +1235,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4825463166140880032
-MeshCollider:
+--- !u!65 &2429642043911140072
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1256,10 +1253,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7403910261235793591, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.84413, y: 5.4007483, z: 0.5907208}
+  m_Center: {x: 0.06972507, y: 0.4024643, z: -0.020547159}
 --- !u!54 &7542700686529363569
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1286,7 +1282,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3425769623700929060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,7 +1309,7 @@ GameObject:
   - component: {fileID: 4559443307613652242}
   - component: {fileID: 252968164280908082}
   - component: {fileID: 1122635395828744836}
-  - component: {fileID: 8806399997593457117}
+  - component: {fileID: 5408727212708275229}
   - component: {fileID: 6555632737293910265}
   - component: {fileID: 1774569293403801147}
   m_Layer: 0
@@ -1388,8 +1384,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8806399997593457117
-MeshCollider:
+--- !u!65 &5408727212708275229
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1406,10 +1402,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7401353886334607404, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.4091957, y: 5.0309067, z: 0.6790202}
+  m_Center: {x: 0.06831998, y: -0.022465352, z: -0.030328183}
 --- !u!54 &6555632737293910265
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1436,7 +1431,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1774569293403801147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,7 +1661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba43825907507243b5b958415b0a0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 0
   timerDirection: 0
   loop: 0
   runTimer: 0

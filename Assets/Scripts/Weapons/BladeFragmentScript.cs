@@ -22,9 +22,10 @@ public class BladeFragmentScript : MonoBehaviour
 
         Debug.Log(collision);
 
+        rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.useGravity = true;
-        coll.enabled = false;
+        coll.enabled = true;
 
         if (dmg != null)
         {
