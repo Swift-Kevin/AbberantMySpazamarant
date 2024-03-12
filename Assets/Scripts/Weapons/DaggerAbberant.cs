@@ -48,24 +48,21 @@ public class DaggerAbberant : WeaponBase
 
             if (sentBladeIdx <= 4)
             {
-                transform.parent.GetComponent<Animator>().Play(weapon.RandAnimName, -1, 0f);
-                
-                //origBladePieces[sentBladeIdx].parent = attackPosParent;
-                
+                animator.SetTrigger("Attack01");
+                origBladePieces[sentBladeIdx].parent = attackPosParent;
+
                 Rigidbody rbDag = origBladePieces[sentBladeIdx].GetComponent<Rigidbody>();
                 rbDag.isKinematic = false;
                 rbDag.useGravity = true;
-                rbDag.AddForce(PlayerBase.Instance.CamFWD * daggerForceMultiplier, ForceMode.Impulse);
+                origBladePieces[sentBladeIdx].GetComponent<Rigidbody>().AddForce(PlayerBase.Instance.CamFWD * daggerForceMultiplier, ForceMode.Impulse);
                 
                 origBladePieces[sentBladeIdx].GetComponent<BoxCollider>().enabled = true;
-
-                Debug.Log("RANSDJNASD" + rbDag.position);
 
                 sentBladeIdx++;
             }
             else // hilt attack
             {
-                transform.parent.GetComponent<Animator>().Play(weapon.RandSecAnimName, -1, 0f);
+                animator.SetTrigger("Attack02");
                 RaycastHit hit;
                 if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, weapon.SecAtkDist))
                 {
@@ -139,13 +136,14 @@ public class DaggerAbberant : WeaponBase
     
     public override void Sheathe()
     {
-        transform.parent.GetComponent<Animator>().Play(sheatheAnim, -1, 0f);
+        animator.SetTrigger("Sheathe");
         canUseWeapon = false;
     }
 
     public override void Unsheathe()
     {
-        transform.parent.GetComponent<Animator>().Play(unsheatheAnim, -1, 0f);
+        animator.SetTrigger("Unsheathe");
+        Debug.Log("Unsheathe");
         canUseWeapon = true;
     }
 }

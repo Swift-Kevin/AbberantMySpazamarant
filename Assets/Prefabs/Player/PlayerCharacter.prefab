@@ -66,7 +66,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -336,8 +336,8 @@ GameObject:
   - component: {fileID: 6991373015285200590}
   - component: {fileID: 3664779148678118170}
   - component: {fileID: 6496329674182189543}
+  - component: {fileID: 8424640155127539198}
   - component: {fileID: 3051523601941288}
-  - component: {fileID: 5934451317910491645}
   - component: {fileID: 4792379958992807765}
   m_Layer: 0
   m_Name: Blade.003
@@ -411,6 +411,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8424640155127539198
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3671995485889516538}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6043746360930125114, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
 --- !u!54 &3051523601941288
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -438,27 +460,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &5934451317910491645
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671995485889516538}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.0248666, y: 4.307991, z: 0.59072053}
-  m_Center: {x: 0.24928117, y: -0.28914547, z: -0.020547068}
 --- !u!114 &4792379958992807765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a296ae1e7b85345a6a2c045bebadb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 5934451317910491645}
+  coll: {fileID: 0}
   rb: {fileID: 3051523601941288}
   abbScript: {fileID: 3987791230104831741}
 --- !u!1 &5680856668847747567
@@ -568,8 +569,8 @@ GameObject:
   - component: {fileID: 2213130073066275936}
   - component: {fileID: 7352053982370358501}
   - component: {fileID: 5675160488570412889}
+  - component: {fileID: 5160898923922722902}
   - component: {fileID: 4593455502140238127}
-  - component: {fileID: 8610879524036484207}
   - component: {fileID: 5171200622393604823}
   m_Layer: 0
   m_Name: Blade.001
@@ -643,6 +644,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5160898923922722902
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681802164226231660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -690554794711785509, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
 --- !u!54 &4593455502140238127
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -670,27 +693,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8610879524036484207
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5681802164226231660}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.8552184, y: 5.449906, z: 0.6446515}
-  m_Center: {x: 0.27890694, y: 0.40243268, z: -0.04751246}
 --- !u!114 &5171200622393604823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a296ae1e7b85345a6a2c045bebadb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 8610879524036484207}
+  coll: {fileID: 0}
   rb: {fileID: 4593455502140238127}
   abbScript: {fileID: 3987791230104831741}
 --- !u!1 &7534995058422629644
@@ -717,8 +719,8 @@ GameObject:
   - component: {fileID: 4061145072664824371}
   - component: {fileID: 6379114197028054569}
   - component: {fileID: 4010918678590141405}
+  - component: {fileID: 294238864855969814}
   - component: {fileID: 8460672071044139910}
-  - component: {fileID: 8205246631890511723}
   - component: {fileID: 271168939416826611}
   m_Layer: 0
   m_Name: Blade.002
@@ -792,6 +794,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &294238864855969814
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534995058422629644}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5433508609857211535, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
 --- !u!54 &8460672071044139910
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -819,27 +843,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &8205246631890511723
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534995058422629644}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.6110842, y: 4.803782, z: 0.59072065}
-  m_Center: {x: 0.08922146, y: 0.44428453, z: -0.02055072}
 --- !u!114 &271168939416826611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a296ae1e7b85345a6a2c045bebadb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 8205246631890511723}
+  coll: {fileID: 0}
   rb: {fileID: 8460672071044139910}
   abbScript: {fileID: 3987791230104831741}
 --- !u!1 &7756240795230314327
@@ -866,13 +869,14 @@ GameObject:
   - component: {fileID: 8773591267039180654}
   - component: {fileID: 3034339830798152652}
   - component: {fileID: 3987791230104831741}
+  - component: {fileID: 8820497409080022381}
   m_Layer: 0
-  m_Name: DaggerShattered
+  m_Name: DaggerAbberant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8773591267039180654
 Transform:
   m_ObjectHideFlags: 0
@@ -926,14 +930,7 @@ MonoBehaviour:
     cooldown: 1
     attackDistance: 100000
     secondaryAttackDistance: 0.5
-    animNames:
-    - DaggerAbberant_Attack01
-    secondaryAnimNames:
-    - DaggerAbberant_Special01
-    - DaggerAbberant_Special02
-    - DaggerAbberant_Special03
-  sheatheAnim: DaggerAbberant_Sheathe
-  unsheatheAnim: DaggerAbberant_Unsheathe
+  animator: {fileID: 8820497409080022381}
   hilt: {fileID: 1335415538070475545}
   attackPosParent: {fileID: 0}
   origBladePieces:
@@ -944,6 +941,27 @@ MonoBehaviour:
   - {fileID: 4559443307613652242}
   daggerForceMultiplier: 50
   recallMultiplier: 5
+--- !u!95 &8820497409080022381
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756240795230314327}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d2f314a3305ebe44b9758e5d305ac70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7793810370600832913
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,10 +1056,7 @@ MonoBehaviour:
     cooldown: 0
     attackDistance: 0
     secondaryAttackDistance: 0
-    animNames: []
-    secondaryAnimNames: []
-  sheatheAnim: 
-  unsheatheAnim: 
+  animator: {fileID: 3661106906129976090}
 --- !u!1 &8172240416133099254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,13 +1068,14 @@ GameObject:
   - component: {fileID: 3992495533306666918}
   - component: {fileID: 8236209028993165144}
   - component: {fileID: 833795957050850618}
+  - component: {fileID: 5746049160427961563}
   m_Layer: 0
-  m_Name: Dagger
+  m_Name: DaggerRegular
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3992495533306666918
 Transform:
   m_ObjectHideFlags: 0
@@ -1114,14 +1130,28 @@ MonoBehaviour:
     cooldown: 0.5
     attackDistance: 1.5
     secondaryAttackDistance: 1
-    animNames:
-    - DaggerRegular_Attack01
-    - DaggerRegular_Attack02
-    secondaryAnimNames:
-    - DaggerRegular_Attack01
-    - 
-  sheatheAnim: DaggerRegular_Sheathe
-  unsheatheAnim: DaggerRegular_Unsheathe
+  animator: {fileID: 5746049160427961563}
+--- !u!95 &5746049160427961563
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8172240416133099254}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 631619b4b0b18f043a0e7015391bc158, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8459338978953479187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,8 +1163,8 @@ GameObject:
   - component: {fileID: 1643510249921100638}
   - component: {fileID: 1054203014088463893}
   - component: {fileID: 3355758106671368944}
+  - component: {fileID: 4825463166140880032}
   - component: {fileID: 7542700686529363569}
-  - component: {fileID: 387360726111841169}
   - component: {fileID: 3425769623700929060}
   m_Layer: 0
   m_Name: Blade.004
@@ -1208,6 +1238,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4825463166140880032
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8459338978953479187}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7403910261235793591, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
 --- !u!54 &7542700686529363569
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1235,27 +1287,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &387360726111841169
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8459338978953479187}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.8441298, y: 5.400746, z: 0.5907203}
-  m_Center: {x: 0.06972406, y: 0.40245652, z: -0.02054334}
 --- !u!114 &3425769623700929060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1268,7 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a296ae1e7b85345a6a2c045bebadb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 387360726111841169}
+  coll: {fileID: 0}
   rb: {fileID: 7542700686529363569}
   abbScript: {fileID: 3987791230104831741}
 --- !u!1 &8768295973038637190
@@ -1282,8 +1313,8 @@ GameObject:
   - component: {fileID: 4559443307613652242}
   - component: {fileID: 252968164280908082}
   - component: {fileID: 1122635395828744836}
+  - component: {fileID: 8806399997593457117}
   - component: {fileID: 6555632737293910265}
-  - component: {fileID: 7231678107912735169}
   - component: {fileID: 1774569293403801147}
   m_Layer: 0
   m_Name: Blade
@@ -1357,6 +1388,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8806399997593457117
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768295973038637190}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7401353886334607404, guid: 28c9065f64fc50941a95b6153b619cb3, type: 3}
 --- !u!54 &6555632737293910265
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1384,27 +1437,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7231678107912735169
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8768295973038637190}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.409195, y: 5.030904, z: 0.6790201}
-  m_Center: {x: 0.06831998, y: -0.02247298, z: -0.030328164}
 --- !u!114 &1774569293403801147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,7 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a296ae1e7b85345a6a2c045bebadb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coll: {fileID: 7231678107912735169}
+  coll: {fileID: 0}
   rb: {fileID: 6555632737293910265}
   abbScript: {fileID: 3987791230104831741}
 --- !u!1 &8786480016055517255

@@ -24,6 +24,7 @@ public class BladeFragmentScript : MonoBehaviour
 
         rb.angularVelocity = Vector3.zero;
         rb.useGravity = true;
+        coll.enabled = false;
 
         if (dmg != null)
         {

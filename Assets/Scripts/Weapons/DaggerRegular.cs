@@ -12,7 +12,8 @@ public class DaggerRegular : WeaponBase
         Debug.Log("Regular Attack Called");
         if (canUseWeapon)
         {
-            transform.parent.GetComponent<Animator>().Play(weapon.RandAnimName, -1, 0f);
+            animator.SetTrigger("Attack01");
+
             weaponTimer.enabled = true;
             weaponTimer.StartTimer(weapon.CD * specCDMult);
 
@@ -46,13 +47,14 @@ public class DaggerRegular : WeaponBase
 
     public override void Sheathe()
     {
-        transform.parent.GetComponent<Animator>().Play(sheatheAnim, -1, 0f);
+        animator.SetTrigger("Sheathe");
         canUseWeapon = false;
     }
 
     public override void Unsheathe()
     {
-        transform.parent.GetComponent<Animator>().Play(unsheatheAnim, -1, 0f);
+        animator.SetTrigger("Unsheathe");
+        Debug.Log("Unsheathe");
         canUseWeapon = true;
     }
 }

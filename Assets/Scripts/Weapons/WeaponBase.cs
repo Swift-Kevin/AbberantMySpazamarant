@@ -12,15 +12,15 @@ public class WeaponBase : MonoBehaviour
         [SerializeField] private float cooldown;
         [SerializeField] private float attackDistance;
         [SerializeField] private float secondaryAttackDistance;
-        [SerializeField] private List<string> animNames;
-        [SerializeField] private List<string> secondaryAnimNames;
+        //[SerializeField] private List<string> animNames;
+        //[SerializeField] private List<string> secondaryAnimNames;
 
         public float CD => cooldown;
         public float AtkDist => attackDistance;
         public float SecAtkDist => secondaryAttackDistance;
-        public List<string> AnimationNames => animNames;
-        public string RandAnimName => animNames[UnityEngine.Random.Range(0, animNames.Count)];
-        public string RandSecAnimName => secondaryAnimNames[UnityEngine.Random.Range(0, secondaryAnimNames.Count)];
+        //public List<string> AnimationNames => animNames;
+        //public string RandAnimName => animNames[UnityEngine.Random.Range(0, animNames.Count)];
+        //public string RandSecAnimName => secondaryAnimNames[UnityEngine.Random.Range(0, secondaryAnimNames.Count)];
     }
 
     [Space]
@@ -31,8 +31,7 @@ public class WeaponBase : MonoBehaviour
 
     [Space]
     [Header("Animations for Sheating/Unsheating")]
-    [SerializeField] protected string sheatheAnim;
-    [SerializeField] protected string unsheatheAnim;
+    [SerializeField] protected Animator animator;
 
     protected bool canUseWeapon;
     public bool CanUse => canUseWeapon;
