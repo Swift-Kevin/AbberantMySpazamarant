@@ -40,7 +40,7 @@ public class DaggerAbberant : WeaponBase
 
     public override void Attack()
     {
-        Debug.Log("Abberation [ATTACK] Called");
+        //Debug.Log("Abberation [ATTACK] Called");
         if (canUseWeapon && !recall)
         {
             weaponTimer.enabled = true;
@@ -75,7 +75,7 @@ public class DaggerAbberant : WeaponBase
 
     public override void SpecialAttack()
     {
-        Debug.Log("Aberration [SPECIAL ATTACK] Called");
+        //Debug.Log("Aberration [SPECIAL ATTACK] Called");
         sentBladeIdx = 0;
 
         foreach (var bladePiece in origBladePieces)
@@ -111,7 +111,7 @@ public class DaggerAbberant : WeaponBase
                 }
                 if (areAllInPlace == 5)
                 {
-                    Debug.Log("Stopping Recall");
+                    //Debug.Log("Stopping Recall");
                     recall = false;
                 }
             }
@@ -143,7 +143,7 @@ public class DaggerAbberant : WeaponBase
     public override void Unsheathe()
     {
         animator.SetTrigger("Unsheathe");
-        Debug.Log("Unsheathe");
+        //Debug.Log("Unsheathe");
         canUseWeapon = true;
     }
 }

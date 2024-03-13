@@ -1580,6 +1580,7 @@ MonoBehaviour:
   movementScript: {fileID: 5426042978624713582}
   statManager: {fileID: 1136901672289140343}
   cam: {fileID: 5168031193796012091}
+  weaponsManager: {fileID: 265066456164849229}
 --- !u!114 &1136901672289140343
 MonoBehaviour:
   m_ObjectHideFlags: 0

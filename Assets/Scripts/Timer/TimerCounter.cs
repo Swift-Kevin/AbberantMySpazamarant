@@ -19,7 +19,7 @@ public class TimerCounter : MonoBehaviour
 
     private float currTime;
     public float CurrentTime => currTime;
-    public float PercentPassed => Mathf.Clamp01(currTime / duration);
+    public float Percent => Mathf.Clamp01(currTime / duration);
     public bool runTimer = false;
 
     private void Update()

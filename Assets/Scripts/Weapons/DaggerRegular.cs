@@ -9,7 +9,7 @@ public class DaggerRegular : WeaponBase
 
     public override void Attack()
     {
-        Debug.Log("Regular Attack Called");
+        //Debug.Log("Regular Attack Called");
         if (canUseWeapon)
         {
             animator.SetTrigger("Attack01");
@@ -54,7 +54,7 @@ public class DaggerRegular : WeaponBase
     public override void Unsheathe()
     {
         animator.SetTrigger("Unsheathe");
-        Debug.Log("Unsheathe");
+        //Debug.Log("Unsheathe");
         canUseWeapon = true;
     }
 }

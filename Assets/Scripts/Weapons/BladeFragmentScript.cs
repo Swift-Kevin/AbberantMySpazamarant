@@ -20,7 +20,7 @@ public class BladeFragmentScript : MonoBehaviour
         IDamageable dmg = collision.gameObject.GetComponent<IDamageable>();
         IPushable push = collision.gameObject.GetComponent<IPushable>();
 
-        Debug.Log(collision);
+        //Debug.Log(collision);
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;

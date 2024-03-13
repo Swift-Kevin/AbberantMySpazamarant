@@ -23,7 +23,7 @@ public class Resource
 
     // Properties
     public float CurrValue => currentValue;
-    public float Percent => currentValue / maxValue;
+    public float Percent => Mathf.Clamp01(currentValue / maxValue);
     public float Max => maxValue;
     public float Min => minValue;
     public bool Valid => (currentValue > 0);

@@ -80,6 +80,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Paused"",
+                    ""type"": ""Button"",
+                    ""id"": ""df8c68be-06aa-4613-b8f5-e5952fafd1f6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -214,6 +223,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""SpecialAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54427c1c-925c-4c66-b82d-92daabd2c58c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Paused"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +248,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_General_Attack = m_General.FindAction("Attack", throwIfNotFound: true);
         m_General_SwapWeapon = m_General.FindAction("SwapWeapon", throwIfNotFound: true);
         m_General_SpecialAttack = m_General.FindAction("SpecialAttack", throwIfNotFound: true);
+        m_General_Paused = m_General.FindAction("Paused", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +316,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_General_Attack;
     private readonly InputAction m_General_SwapWeapon;
     private readonly InputAction m_General_SpecialAttack;
+    private readonly InputAction m_General_Paused;
     public struct GeneralActions
     {
         private @PlayerInput m_Wrapper;
@@ -305,6 +327,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_General_Attack;
         public InputAction @SwapWeapon => m_Wrapper.m_General_SwapWeapon;
         public InputAction @SpecialAttack => m_Wrapper.m_General_SpecialAttack;
+        public InputAction @Paused => m_Wrapper.m_General_Paused;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -332,6 +355,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SpecialAttack.started += instance.OnSpecialAttack;
             @SpecialAttack.performed += instance.OnSpecialAttack;
             @SpecialAttack.canceled += instance.OnSpecialAttack;
+            @Paused.started += instance.OnPaused;
+            @Paused.performed += instance.OnPaused;
+            @Paused.canceled += instance.OnPaused;
         }
 
         private void UnregisterCallbacks(IGeneralActions instance)
@@ -354,6 +380,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SpecialAttack.started -= instance.OnSpecialAttack;
             @SpecialAttack.performed -= instance.OnSpecialAttack;
             @SpecialAttack.canceled -= instance.OnSpecialAttack;
+            @Paused.started -= instance.OnPaused;
+            @Paused.performed -= instance.OnPaused;
+            @Paused.canceled -= instance.OnPaused;
         }
 
         public void RemoveCallbacks(IGeneralActions instance)
@@ -379,5 +408,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnSwapWeapon(InputAction.CallbackContext context);
         void OnSpecialAttack(InputAction.CallbackContext context);
+        void OnPaused(InputAction.CallbackContext context);
     }
 }

@@ -34,6 +34,8 @@ public class EnemyBase : MonoBehaviour, IDamageable, IPushable
 
     private void Health_OnDepleted()
     {
+        EnemyManager.Instance.AdjustEnemyKills(1);
+
         gameObject.SetActive(false);
     }
 
@@ -55,6 +57,7 @@ public class EnemyBase : MonoBehaviour, IDamageable, IPushable
     {
         enemy_statManager.Revive();
         gameObject.SetActive(true);
+        EnemyManager.Instance.AdjustEnemyToTotal(1);
     }
 
     public void Push(Vector3 dirToPush) 

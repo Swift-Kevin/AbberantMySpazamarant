@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,9 +21,8 @@ public class PlayerStatManager : MonoBehaviour
         speed.SetToMax();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDMG(float value)
     {
-        
+        health.Decrease(value);
     }
 }

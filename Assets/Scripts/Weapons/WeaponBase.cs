@@ -74,26 +74,26 @@ public class WeaponBase : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log("Base Version [ATTACK] Called");
+        //Debug.Log("Base Version [ATTACK] Called");
     }
 
     public virtual void SpecialAttack()
     {
-        Debug.Log("Base Version [SPECIAL] ATTACK Called");
+        //Debug.Log("Base Version [SPECIAL] ATTACK Called");
     }
 
     public virtual void FixBadValues()
     {
-        Debug.Log("Base Version [FIXBADVALUES] Called");
+        //Debug.Log("Base Version [FIXBADVALUES] Called");
     }
 
     public virtual void Sheathe()
     {
-        Debug.Log("Base Version [SHEATHE] Called");
+        //Debug.Log("Base Version [SHEATHE] Called");
     }
 
     public virtual void Unsheathe()
     {
-        Debug.Log("Base Version [UNSHEATHE] Called");
+        //Debug.Log("Base Version [UNSHEATHE] Called");
     }
 }

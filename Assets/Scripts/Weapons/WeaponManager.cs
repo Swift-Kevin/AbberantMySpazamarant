@@ -18,6 +18,7 @@ public class WeaponManager : MonoBehaviour
     [Space]
     [SerializeField] private TimerCounter timerSwapWeapons;
     [SerializeField] private TimerCounter timerSheathingAndUnsheating;
+    public float WeaponCooldownTimer => timerSwapWeapons.Percent;
 
     private bool canSwap;
 
@@ -26,24 +27,35 @@ public class WeaponManager : MonoBehaviour
     {
         currentWeapon = dagger1;
         canSwap = true;
+        UIManager.Instance.UpdatePlayerUI();
 
         dagger1Model.SetActive(true);
         dagger2Model.SetActive(false);
         timerSwapWeapons = GetComponent<TimerCounter>();
-        
+
         timerSwapWeapons.OnStarted += TimerSwapWeapons_OnStarted;
+        timerSwapWeapons.OnTick += TimerSwapWeapons_OnTick;
         timerSwapWeapons.OnEnded += TimerSwapWeapons_OnEnded;
 
         timerSheathingAndUnsheating.OnEnded += FinishSwap;
 
-        InputManager.Instance.Action.SpecialAttack.started += SpAtk;
-        InputManager.Instance.Action.Attack.started += Atk;
-        InputManager.Instance.Action.SwapWeapon.started += SwapWeapon;
+        if (InputManager.Instance != null)
+        {
+            InputManager.Instance.Action.SpecialAttack.started += SpAtk;
+            InputManager.Instance.Action.Attack.started += Atk;
+            InputManager.Instance.Action.SwapWeapon.started += SwapWeapon;
+        }
+    }
+
+    private void TimerSwapWeapons_OnTick()
+    {
+        UIManager.Instance.UpdatePlayerUI();
     }
 
     private void OnDisable()
     {
         timerSwapWeapons.OnStarted -= TimerSwapWeapons_OnStarted;
+        timerSwapWeapons.OnTick -= TimerSwapWeapons_OnTick;
         timerSwapWeapons.OnEnded -= TimerSwapWeapons_OnEnded;
 
         timerSheathingAndUnsheating.OnEnded -= FinishSwap;
