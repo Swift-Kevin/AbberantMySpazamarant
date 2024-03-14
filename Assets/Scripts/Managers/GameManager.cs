@@ -62,14 +62,16 @@ public class GameManager : MonoBehaviour
             currentGameState = GameStates.Paused;
             UIManager.Instance.DisplayPauseUI();
             Time.timeScale = 0;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
         else
         {
             currentGameState = GameStates.Playing;
             UIManager.Instance.TurnOffPauseUI();
             Time.timeScale = origTimeScale;
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 

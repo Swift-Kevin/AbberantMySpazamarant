@@ -703,7 +703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5856412057190964681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1837,7 +1837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6374029293693274252
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2055,9 +2055,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba44ddcda2eed9439bb3cb0388c7f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCurrentTotal: 0
-  enemyGoal: 0
-  enemyLimit: 0
+  enemyTotal: 0
+  enemyKills: 0
 --- !u!1 &3839367156148682116
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,7 +2768,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 62.25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3927,7 +3926,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 62
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
